@@ -23,12 +23,6 @@ public class Fraccion {
         this.denominador = denominador;
     }
 
-
-    private static int MCM (int numero1, int numero2) {
-        // MCM(a, b) = (a * b) / MCD(a, b)
-        return (numero1 * numero2) / MCD(numero1, numero2);
-    }
-
     private static int MCD (int numero1, int numero2) {
         int temporal;//Para no perder b
         while (numero2 != 0) {
@@ -36,7 +30,13 @@ public class Fraccion {
             numero2 = numero1 % numero2;
             numero1 = temporal;
         }
+
         return numero1;
+    }
+
+    private static int MCM (int numero1, int numero2) {
+        // MCM(a, b) = (a * b) / MCD(a, b)
+        return (numero1 * numero2) / MCD(numero1, numero2);
     }
 
     public static Fraccion sumar (Fraccion fraccion1, Fraccion fraccion2) {
@@ -52,6 +52,26 @@ public class Fraccion {
 
     public static Fraccion sumar (Fraccion fraccion1, int numero) {
         int sumaNumeradores = fraccion1.numerador + numero;
+
         return new Fraccion(sumaNumeradores, fraccion1.denominador);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Testeando fracciones...");
+        Fraccion fraccion1 = new Fraccion(5, 2);
+        Fraccion fraccion2 = new Fraccion(7, 3);
+
+        System.out.println("Sumando dos fracciones...");
+
+        System.out.println("Sumando " + fraccion1.getNumerador() + "/" + fraccion1.getDenominador() + " con " + fraccion2.getNumerador() + "/" + fraccion2.getDenominador());
+        Fraccion resultado = Fraccion.sumar(fraccion1, fraccion2);
+        System.out.println("Resultado: " + resultado.getNumerador() + "/" + resultado.getDenominador());
+
+        System.out.println("Sumando una fraccion con un entero...");
+        int entero = 73;
+
+        System.out.println("Sumando " + fraccion1.getNumerador() + "/" + fraccion1.getDenominador() + " con " + entero);
+        Fraccion resultado2 = Fraccion.sumar(fraccion1, entero);
+        System.out.println("Resultado: " + resultado2.getNumerador() + "/" + resultado2.getDenominador());
     }
 }

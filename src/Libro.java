@@ -69,4 +69,25 @@ public class Libro {
     public String toString() {
         return this.titulo + ", " + this.isbn + ", " + this.autor;
     }
+
+    public static void main(String[] args) {
+        System.out.println("Testeando libros...");
+        Libro libro = new Libro("Juego de Tronos", "4523699", "George RR Martin");
+
+        System.out.println("El titulo del libro es: " + libro.getTitulo());
+        System.out.println("El autor del libro es: " + libro.getAutor());
+        System.out.println("El isbn del libro es: " + libro.getIsbn());
+
+        System.out.println("Prestando libro...");
+        libro.prestamo();
+
+        System.out.println("Si queremos prestar nuevamente el libro sin devolverlo, no es posible");
+        libro.prestamo();
+
+        System.out.println("Devolviendo libro...");
+        libro.devolucion();
+
+        System.out.println("Resultado del metodo toString(): " + libro.toString());
+    }
 }
+
