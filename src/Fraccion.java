@@ -51,7 +51,7 @@ public class Fraccion {
     }
 
     public static Fraccion sumar (Fraccion fraccion1, int numero) {
-        int sumaNumeradores = fraccion1.numerador + numero;
+        int sumaNumeradores = fraccion1.numerador + (numero * fraccion1.denominador);
 
         return new Fraccion(sumaNumeradores, fraccion1.denominador);
     }
@@ -68,7 +68,7 @@ public class Fraccion {
     }
 
     public static Fraccion restar (Fraccion fraccion1, int numero) {
-        int restaNumeradores = fraccion1.numerador - numero;
+        int restaNumeradores = fraccion1.numerador - (numero * fraccion1.denominador);
 
         return new Fraccion(restaNumeradores, fraccion1.denominador);
     }
